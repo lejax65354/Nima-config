@@ -4,8 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>نیما کانفیگ | فروشگاه کانفیگ پرسرعت VPN</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://wsrv.nl" crossorigin>
+<link rel="preconnect" href="https://image.qwenlm.ai" crossorigin>
+<link rel="preconnect" href="https://www.gstatic.com">
+<link rel="preconnect" href="https://nima-cinfig-default-rtdb.firebaseio.com">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/vazirmatn@5.0.8/400.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/vazirmatn@5.0.8/500.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/vazirmatn@5.0.8/700.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/vazirmatn@5.0.8/800.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/vazirmatn@5.0.8/900.css">
@@ -36,6 +40,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 input,textarea,select{font-family:inherit;color:var(--ink)}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
+.reviews-sec,.faq-sec,footer{content-visibility:auto;contain-intrinsic-size:auto 700px}
 
 .ticker{overflow:hidden;background:var(--accent);color:#fff;position:relative;z-index:60}
 .ticker-track{display:flex;width:max-content;animation:tickerMove var(--tickDur,30s) linear infinite}
@@ -323,7 +328,7 @@ background:conic-gradient(#0071e3 0 45deg,#1d1d1f 45deg 90deg,#64acff 90deg 135d
     <a class="btn btn-ghost" href="https://t.me/Nimaconfigbot" target="_blank">💬 ربات تلگرام</a>
   </div>
   <div class="hero-visual">
-    <div class="hero-img-wrap"><img src="https://image.qwenlm.ai/public_source/1d7a7eed-1946-4764-924b-c5795e0b9ecd/10708d86c-956a-4a83-baac-a240fd7491a6.png" alt="شبکه جهانی نیما کانفیگ"></div>
+    <div class="hero-img-wrap"><img fetchpriority="high" decoding="async" src="https://wsrv.nl/?url=https%3A%2F%2Fimage.qwenlm.ai%2Fpublic_source%2F1d7a7eed-1946-4764-924b-c5795e0b9ecd%2F10708d86c-956a-4a83-baac-a240fd7491a6.png&w=1200&output=webp&q=75" data-fb="https://image.qwenlm.ai/public_source/1d7a7eed-1946-4764-924b-c5795e0b9ecd/10708d86c-956a-4a83-baac-a240fd7491a6.png" onerror="this.onerror=null;this.src=this.dataset.fb" alt="شبکه جهانی نیما کانفیگ"></div>
   </div>
 </section>
 
@@ -410,7 +415,7 @@ background:conic-gradient(#0071e3 0 45deg,#1d1d1f 45deg 90deg,#64acff 90deg 135d
   <div class="modal-box">
     <button class="m-close" data-close="productModal">✕</button>
     <div class="pm-grid">
-      <div class="pm-img"><img id="pmImage" src="" alt=""><div class="p-badges" id="pmBadges" style="top:1rem;right:1rem"></div></div>
+      <div class="pm-img"><img id="pmImage" src="" alt="" onerror="this.onerror=null;this.src=this.dataset.fb"><div class="p-badges" id="pmBadges" style="top:1rem;right:1rem"></div></div>
       <div class="pm-body">
         <h3 id="pmTitle"></h3>
         <div class="pm-sub" id="pmSubtitle"></div>
@@ -573,17 +578,17 @@ const DEFAULT_ADS = '🚀 سرورهای جدید آلمان و فنلاند ب�
 const DEFAULT_PRODUCTS = [
  {id:'p1',title:'کانفیگ Turbo VPN Pro',subtitle:'۱ ماهه / ۵۰ گیگابایت — مخصوص گیم و پینگ پایین',desc:'کانفیگ تک‌کاربره روی سرورهای اختصاصی آلمان و فنلاند با پروتکل VLESS + Reality و پینگ زیر ۴۰ میلی‌ثانیه؛ بهینه برای بازی آنلاین و تماس تصویری بدون لگ.',price:199000,sale:149000,stock:true,badges:['پرتقاضا','ویژه گیمینگ'],cat:'گیمینگ',img:IMG.game,features:['پروتکل VLESS + Reality','پینگ زیر ۴۰ میلی‌ثانیه','بهینه برای بازی آنلاین','دی‌ان‌اس اختصاصی گیم'],servers:['آلمان','فنلاند','ترکیه'],duration:'۳۰ روز',traffic:'۵۰ گیگابایت',users:'۱ کاربر'},
  {id:'p2',title:'اشتراک Shadow Link Premium',subtitle:'نامحدود اختصاصی / ۳ کاربره — اتصال لوکس و پایدار',desc:'اشتراک کاملاً اختصاصی با حجم نامحدود، ظرفیت ۳ کاربر همزمان و سرورهای طلایی اروپا؛ انتخاب اول کاربران حرفه‌ای، تریدرها و دورکارها.',price:549000,sale:449000,stock:true,badges:['پیشنهاد ویژه'],cat:'ویژه',img:IMG.server,features:['حجم کاملاً نامحدود','۳ کاربر همزمان','سرور اختصاصی prywat','پشتیبانی اولویت‌دار VIP'],servers:['آلمان','هلند','سوئد','فنلاند'],duration:'۳۰ روز',traffic:'نامحدود',users:'۳ کاربر'},
- {id:'p3',title:'پک خانواده Family Net',subtitle:'۳ ماهه / ۱۵۰ گیگابایت VIP — اقتصادی و ماندگار',desc:'پک سه‌ماههٔ خانوادگی با ۱۵۰ گیگ حجم VIP، قابل اتصال روی ۵ دستگاه و مناسب استریم و وب‌گردی روزمرهٔ کل خانواده.',price:489000,sale:389000,stock:true,badges:['پرتقاضا','اقتصادی'],cat:'خانواده',img:IMG.family,features:['۱۵۰ گیگابایت حجم VIP','۵ دستگاه همزمان','اعتبار ۹۰ روزه','ریست هفتگی حجم'],servers:['آلمان','فرانسه','ترکیه','امارات'],duration:'۹۰ روز',traffic:'۱۵ گیگابایت',users:'۵ دستگاه'},
+ {id:'p3',title:'پک خانواده Family Net',subtitle:'۳ ماهه / ۱۵۰ گیگابایت VIP — اقتصادی و ماندگار',desc:'پک سه‌ماههٔ خانوادگی با ۱۵ گیگ حجم VIP، قابل اتصال روی ۵ دستگاه و مناسب استریم و وب‌گردی روزمرهٔ کل خانواده.',price:489000,sale:389000,stock:true,badges:['پرتقاضا','اقتصادی'],cat:'خانواده',img:IMG.family,features:['۱۵ گیگابایت حجم VIP','۵ دستگاه همزمان','اعتبار ۹۰ روزه','ریست هفتگی حجم'],servers:['آلمان','فرانسه','ترکیه','امارات'],duration:'۹۰ روز',traffic:'۱۵۰ گیگابایت',users:'۵ دستگاه'},
  {id:'p4',title:'تست ۲۴ ساعته رایگان',subtitle:'یک روز کامل، همهٔ سرورها — اول تست کن، بعد بخر!',desc:'قبل از سفارش، سرعت اتصال را رایگان تست کن! کانفیگ آزمایشی ۲۴ ساعته با دسترسی به تمام سرورها تا با خیال راحت انتخاب کنی.',price:0,sale:0,stock:true,badges:['رایگان','تست'],cat:'رایگان',img:IMG.gift,features:['دسترسی ۲۴ ساعته کامل','همهٔ سرورها باز','بدون نیاز به پرداخت','فعال‌سازی آنی از ربات'],servers:['همهٔ سرورها'],duration:'۲۴ ساعت',traffic:'۲ گیگابایت',users:'۱ کاربر'},
- {id:'p5',title:'کانفیگ Plus VPN Standard',subtitle:'۱ ماهه / ۱۰۰ گیگابایت — متعادل و محبوب',desc:'حجم ۱۰۰ گیگابایت برای استفادهٔ روزمره، تلگرام، یوتیوب و وب‌گردی با سرعت پایدار و قیمت مناسب.',price:259000,sale:199000,stock:true,badges:['پرفروش'],cat:'ویژه',img:IMG.hero,features:['۱۰ گیگابایت حجم ماهانه','سرعت پایدار','مناسب تلگرام و یوتیوب','کانفیگ هوشمند چندمسیره'],servers:['آلمان','ترکیه','فنلاند'],duration:'۳۰ روز',traffic:'۱۰۰ گیگابایت',users:'۲ دستگاه'},
+ {id:'p5',title:'کانفیگ Plus VPN Standard',subtitle:'۱ ماهه / ۱۰۰ گیگابایت — متعادل و محبوب',desc:'حجم ۱۰۰ گیگابایت برای استفادهٔ روزمره، تلگرام، یوتیوب و وب‌گردی با سرعت پایدار و قیمت مناسب.',price:259000,sale:199000,stock:true,badges:['پرفروش'],cat:'ویژه',img:IMG.hero,features:['۱۰ گیگابایت حجم ماهانه','سرعت پایدار','مناسب تلگرام و یوتیوب','کانفیگ هوشمند چندمسیره'],servers:['آلمان','ترکیه','فنلاند'],duration:'۳۰ روز',traffic:'۱۰ گیگابایت',users:'۲ دستگاه'},
  {id:'p6',title:'کانفیگ Stream Master 4K',subtitle:'۱ ماهه / ۸۰ گیگابایت — مخصوص نتفلیکس و یوتیوب',desc:'کانفیگ بهینه‌شده برای استریم 4K نتفلیکس، یوتیوب و دیزنی‌پلاس با سرورهای ضدبلاک و بدون بافر.',price:299000,sale:249000,stock:false,badges:['آنتی‌بلاک','استریم 4K'],cat:'استریم',img:IMG.stream,features:['رفع بلاک نتفلیکس','استریم 4K بدون بافر','سرور اختصاصی مدیا','مسیریابی هوشمند ترافیک'],servers:['آلمان','بریتانیا','ژاپن'],duration:'۳۰ روز',traffic:'۸۰ گیگابایت',users:'۲ دستگاه'}
 ];
 
 const REVIEWS = [
- {name:'سارا محمدی',avatar:'👩‍💻',stars:5,text:'سه ماهه مشترکم؛ پینگ بازی آنلاینم از ۲۰۰ رسید به ۳۵! واقعاً Turbo VPN Pro معجزه می‌کنه. پشتیبانی هم نصف‌شب جوابم رو داد 😍',plan:'Turbo VPN Pro'},
+ {name:'سارا محمدی',avatar:'👩‍',stars:5,text:'سه ماهه مشترکم؛ پینگ بازی آنلاینم از ۲۰۰ رسید به ۳۵! واقعاً Turbo VPN Pro معجزه می‌کنه. پشتیبانی هم نصف‌شب جوابم رو داد 😍',plan:'Turbo VPN Pro'},
  {name:'رضا کریمی',avatar:'🧔‍♂️',stars:5,text:'اشتراک Shadow Link Premium گرفتم؛ سه دستگاه همزمان وصله و هیچ‌کدوم قطعی ندارن. تحویل هم واقعاً آنی بود!',plan:'Shadow Link Premium'},
- {name:'نگین احمدی',avatar:'👩‍',stars:4,text:'اول تست رایگان گرفتم، بعد با خیال راحت پک Family Net خریدم. رابط کاربری سایتشون هم خیلی تمیز و سریعه.',plan:'Family Net'},
- {name:'امیرحسین توکلی',avatar:'👨‍',stars:5,text:'برای نتفلیکس 4K بدون حتی یک بافر عالی کار می‌کنه. Stream Master 4K یعنی سینمای خانگی واقعی!',plan:'Stream Master 4K'},
+ {name:'نگین احمدی',avatar:'👩‍🎨',stars:4,text:'اول تست رایگان گرفتم، بعد با خیال راحت پک Family Net خریدم. رابط کاربری سایتشون هم خیلی تمیز و سریعه.',plan:'Family Net'},
+ {name:'امیرحسین توکلی',avatar:'👨‍💻',stars:5,text:'برای نتفلیکس 4K بدون حتی یک بافر عالی کار می‌کنه. Stream Master 4K یعنی سینمای خانگی واقعی!',plan:'Stream Master 4K'},
  {name:'مریم رضایی',avatar:'🧕',stars:5,text:'گردونه شانس زدم و ۱۵٪ تخفیف گرفتم، سفارش تلگرامی هم دو دقیقه‌ای ثبت شد. تجربهٔ خرید عالی ',plan:'Plus VPN Standard'}
 ];
 
@@ -621,6 +626,8 @@ const $ = id => document.getElementById(id);
 const faNum = n => Number(n).toLocaleString('fa-IR');
 const money = n => (n===0 ? 'رایگان 🎁' : faNum(n)+' تومان');
 const esc = s => String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+/* تبدیل خودکار تصاویر به WebP سبک + fallback به عکس اصلی در صورت خطا */
+function optImg(u,w){ return 'https://wsrv.nl/?url='+encodeURIComponent(u)+'&w='+w+'&output=webp&q=75'; }
 function toast(msg, icon){
   const t = document.createElement('div');
   t.className = 'toast';
@@ -682,7 +689,6 @@ function startFirebaseSync(){
     setFbStatus(true,'✅ دیتابیس متصل');
     const val = snap.val();
     if(!val){
-      /* اولین اجرا: دیتابیس خالی است → داده‌های پیش‌فرض آپلود می‌شوند */
       publishStore();
       return;
     }
@@ -739,7 +745,7 @@ function renderProducts(){
     const isFav = appState.favs.includes(p.id);
     return '<div class="p-card '+(p.stock?'':'out')+'">'+
       '<div class="p-img" data-open="'+p.id+'">'+
-        '<img src="'+esc(p.img)+'" alt="'+esc(p.title)+'" loading="lazy">'+
+        '<img src="'+optImg(p.img,600)+'" data-fb="'+esc(p.img)+'" onerror="this.onerror=null;this.src=this.dataset.fb" alt="'+esc(p.title)+'" loading="lazy" decoding="async">'+
         '<div class="p-badges">'+ (p.badges||[]).map(b=>'<span class="badge '+(p.price===0?'free':'')+'">'+esc(b)+'</span>').join('') +'</div>'+
         (off? '<span class="off-badge">-'+faNum(off)+'٪</span>' : '')+
         '<span class="stock-tag '+(p.stock?'':'no')+'">'+(p.stock?'موجود':'ناموجود')+'</span>'+
@@ -777,7 +783,7 @@ function renderCart(){
       const p = appState.products.find(x=>x.id===ci.id);
       if(!p) return '';
       return '<div class="cart-item">'+
-        '<img src="'+esc(p.img)+'" alt="">'+
+        '<img src="'+optImg(p.img,120)+'" data-fb="'+esc(p.img)+'" onerror="this.onerror=null;this.src=this.dataset.fb" alt="" loading="lazy">'+
         '<div class="ci-info"><b>'+esc(p.title)+'</b><span>'+money(unitPrice(p)*ci.qty)+'</span></div>'+
         '<div class="qty-box">'+
           '<button class="qty-btn" data-qinc="'+ci.id+'">+</button>'+
@@ -826,7 +832,7 @@ function renderFavs(){
     const p = appState.products.find(x=>x.id===fid);
     if(!p) return '';
     return '<div class="cart-item">'+
-      '<img src="'+esc(p.img)+'" alt="">'+
+      '<img src="'+optImg(p.img,120)+'" data-fb="'+esc(p.img)+'" onerror="this.onerror=null;this.src=this.dataset.fb" alt="" loading="lazy">'+
       '<div class="ci-info"><b>'+esc(p.title)+'</b><span>'+money(unitPrice(p))+'</span></div>'+
       '<button class="qty-btn" data-fadd="'+p.id+'" title="افزودن به سبد" style="width:auto;padding:0 .6rem;font-size:.75rem">🛒</button>'+
       '<button class="ci-del" data-fdel="'+p.id+'">✕</button>'+
@@ -839,7 +845,8 @@ function openProduct(pid){
   const p = appState.products.find(x=>x.id===pid);
   if(!p) return;
   currentProductId = pid;
-  $('pmImage').src = p.img;
+  $('pmImage').dataset.fb = p.img;
+  $('pmImage').src = optImg(p.img,900);
   $('pmBadges').innerHTML = (p.badges||[]).map(b=>'<span class="badge '+(p.price===0?'free':'')+'">'+esc(b)+'</span>').join('') + '<span class="stock-tag '+(p.stock?'':'no')+'" style="position:static;margin-right:.3rem">'+(p.stock?'موجود':'ناموجود')+'</span>';
   $('pmTitle').textContent = p.title;
   $('pmSubtitle').textContent = p.subtitle;
@@ -910,7 +917,7 @@ function buildOrderText(){
   const disc = Math.round(sub*pct/100);
   lines.push('💰 جمع جزء: '+money(sub));
   if(pct){ lines.push('🎟 کد تخفیف: '+appState.discount.code+' ('+faNum(pct)+'٪) → −'+money(disc)); }
-  if(appState.gift){ lines.push('🎁 هدیه: ۱۰ مگابایت حجم اضافه'); }
+  if(appState.gift){ lines.push('🎁 هدیه: ۱۰۰ مگابایت حجم اضافه'); }
   lines.push('✅ مبلغ نهایی: '+money(sub-disc));
   return lines.join('\n');
 }
@@ -984,7 +991,7 @@ function openAdmin(){
 function renderAdminList(){
   $('adminProductsList').innerHTML = appState.products.map(p=>
     '<div class="admin-row">'+
-      '<img src="'+esc(p.img)+'" alt="">'+
+      '<img src="'+optImg(p.img,120)+'" data-fb="'+esc(p.img)+'" onerror="this.onerror=null;this.src=this.dataset.fb" alt="" loading="lazy">'+
       '<div class="ar-info"><b>'+esc(p.title)+'</b><span>'+money(unitPrice(p))+' • '+esc(p.cat)+'</span></div>'+
       '<button class="switch '+(p.stock?'on':'')+'" data-stock="'+p.id+'" title="تغییر وضعیت موجودی"></button>'+
       '<div class="ar-btns">'+
