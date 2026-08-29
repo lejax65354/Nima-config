@@ -535,9 +535,16 @@ background:conic-gradient(#0071e3 0 45deg,#1d1d1f 45deg 90deg,#64acff 90deg 135d
 <div id="toastBox"></div>
 <div id="confettiLayer"></div>
 
-<script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <script>
 const TG_LINK = 'https://t.me/Nimaconfigbot';
-const LS_KEY = 'nimaconfig_state_v1';
+let CLOUD = null;
+try{
+  firebase.initializeApp({ databaseURL: "https://nima-config-default-rtdb.firebaseio.com" });
+  CLOUD = firebase.database().ref('nima_shop_v1');
+}catch(e){}
+    const LS_KEY = 'nimaconfig_state_v1';
 
 const IMG = {
   hero:'https://image.qwenlm.ai/public_source/1d7a7eed-1946-4764-924b-c5795e0b9ecd/10708d86c-956a-4a83-baac-a240fd7491a6.png',
@@ -595,7 +602,10 @@ function loadState(){
   if(saved && typeof saved === 'object'){ return Object.assign(base, saved); }
   return base;
 }
-function saveState(){ localStorage.setItem(LS_KEY, JSON.stringify(appState)); }
+function saveState(){
+  localStorage.setItem(LS_KEY, JSON.stringify(appState));
+  try{ if(CLOUD) CLOUD.set({ products: appState.products, ads: appState.ads }); }catch(e){}
+}
 
 const $ = id => document.getElementById(id);
 const faNum = n => Number(n).toLocaleString('fa-IR');
@@ -1124,6 +1134,17 @@ renderReviews();
 renderFaq();
 updateBadges();
 $('sortSelect').value = appState.sort || 'default';
-</script>
+if(CLOUD){
+  CLOUD.once('value').then(snap=>{
+    const r = snap.val();
+    if(r && Array.isArray(r.products) && r.products.length){
+      appState.products = r.products;
+      if(typeof r.ads === 'string' && r.ads.trim()) appState.ads = r.ads;
+      localStorage.setItem(LS_KEY, JSON.stringify(appState));
+      renderTicker(); renderChips(); renderProducts(); renderCart(); renderFavs(); updateBadges();
+    }
+  }).catch(()=>{});
+}
+  </script>
 </body>
 </html>
