@@ -677,7 +677,12 @@ function setFbStatus(ok, txt){
 }
 function publishStore(){
   if(!storeRef) return;
-  storeRef.set({ products: appState.products, ads: appState.ads }).catch(function(e){
+  // تغییر ۱: اضافه شدن adminPass به داده‌های ارسالی به فایربیس
+  storeRef.set({ 
+    products: appState.products, 
+    ads: appState.ads,
+    adminPass: appState.adminPass 
+  }).catch(function(e){
     console.warn('Firebase write error:', e);
     toast('خطا در ذخیرهٔ آنلاین؛ اینترنت را بررسی کنید','⚠️');
   });
@@ -696,6 +701,9 @@ function startFirebaseSync(){
       appState.products = Array.isArray(val.products) ? val.products : Object.values(val.products);
     }
     if(typeof val.ads === 'string' && val.ads.trim() !== ''){ appState.ads = val.ads; }
+    // تغییر ۲: خواندن رمز عبور از فایربیس اگر وجود داشته باشد
+    if(typeof val.adminPass === 'string'){ appState.adminPass = val.adminPass; }
+    
     renderProducts(); renderTicker(); renderCart(); renderFavs(); updateBadges();
     if($('adminModal').classList.contains('show')){ renderAdminList(); renderStats(); }
   }, function(err){
@@ -1110,7 +1118,12 @@ $('adminResetBtn').onclick = ()=>{
   if(confirm('کل فروشگاه به حالت اولیه بازنشانی شود؟')){
     localStorage.removeItem(LS_KEY);
     if(storeRef){
-      storeRef.set({ products: JSON.parse(JSON.stringify(DEFAULT_PRODUCTS)), ads: DEFAULT_ADS })
+      // تغییر ۴: بازنشانی رمز عبور به حالت پیش‌فرض هنگام ریست فایربیس
+      storeRef.set({ 
+        products: JSON.parse(JSON.stringify(DEFAULT_PRODUCTS)), 
+        ads: DEFAULT_ADS,
+        adminPass: '123456789'
+      })
         .then(()=>location.reload()).catch(()=>location.reload());
     } else { location.reload(); }
   }
@@ -1158,6 +1171,8 @@ $('adminProductsList').onclick = e=>{
   const dl = e.target.closest('[data-del]'); if(dl){ if(confirm('این محصول برای همیشه حذف شود؟')){ appState.products = appState.products.filter(x=>x.id!==dl.dataset.del); appState.cart = appState.cart.filter(c=>c.id!==dl.dataset.del); appState.favs = appState.favs.filter(f=>f!==dl.dataset.del); saveState(); publishStore(); renderProducts(); renderAdminList(); renderCart(); renderFavs(); renderStats(); toast('محصول حذف شد','🗑'); } }
 };
 $('adminSaveAds').onclick = ()=>{ appState.ads = $('adminAdsInput').value; saveState(); publishStore(); renderTicker(); toast('اعلانات بالای سایت به‌روزرسانی شد','📢'); };
+
+// تغییر ۳: فراخوانی publishStore() پس از تغییر موفقیت‌آمیز رمز عبور
 $('changePassBtn').onclick = ()=>{
   const cur = $('currentPass').value;
   const nw = $('newPass').value;
@@ -1165,10 +1180,13 @@ $('changePassBtn').onclick = ()=>{
   if(cur !== appState.adminPass){ toast('رمز فعلی اشتباه است!','⚠️'); return; }
   if(nw.length < 4){ toast('رمز جدید باید حداقل ۴ کاراکتر باشد!','⚠️'); return; }
   if(nw !== cf){ toast('رمز جدید و تکرار آن مطابقت ندارند!','⚠️'); return; }
+  
   appState.adminPass = nw;
   saveState();
+  publishStore(); // ارسال رمز جدید به فایربیس
+  
   $('currentPass').value=''; $('newPass').value=''; $('confirmPass').value='';
-  toast('رمز پنل مدیریت با موفقیت تغییر کرد','🔑');
+  toast('رمز پنل مدیریت با موفقیت تغییر کرد و در دیتابیس ذخیره شد','🔑');
 };
 
 window.addEventListener('scroll', ()=>{ $('topBtn').classList.toggle('show', window.scrollY > 500); });
